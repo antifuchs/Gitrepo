@@ -52,7 +52,7 @@ serves the tool's purpose, and not your own. Whatever utility you get
 out of each tool is dictated by what each tool thinks you should be
 doing. Hence.
 
-1. Make runs "bundle instal" and brings up a Vagrant box
+1. Make runs "bundle install" and brings up a Vagrant box
 2. Vagrant provisions docker
 3. Docker brings up a container running Guard
 4. Guard launches Foreman
