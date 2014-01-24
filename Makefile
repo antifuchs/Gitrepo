@@ -4,6 +4,9 @@ fetch:
 happen: fetch
 	bundle exec vagrant up --provider=virtualbox
 
+file:
+	ls *file > Filefile
+
 clean:
 	bundle exec vagrant destroy -f
 
