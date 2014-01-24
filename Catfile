@@ -1,0 +1,61 @@
+Turns out that many many many tools want config files named after
+them. I can't help but think this is a very special form of
+narcissism. In this repo, I hope to assemble a repo consisting only of
+these files (with the exception of their .lock files if the tool
+requires them), and make them do something in an orchestrated fashion
+- note that this says "something", not necessarily "something useful".
+
+# To run this (why would you want to do that?)
+
+You'll need VirtualBox 4.2.x (or 4.3, though you will get warnings;
+I'm testing on 4.3 and it works fiiiiiine).
+
+Then, run:
+
+``` sh
+make fetch happen
+```
+
+# TODO
+
+* Capfile
+* Dockerfile
+* Gruntfile
+* Guardfile
+* Procfile
+
+## Done - for "serious"
+
+* Berksfile
+* Gemfile
+* Makefile
+* Vagrantfile
+
+## Done - really not even "serious"
+
+* Catfile
+
+## Exceptions made
+
+Life is full of compromises. There are some files that don't fit into
+this naming scheme, no matter how much I try to bend the universe over
+backwards:
+
+* `*.lock` because of course
+* `.gitignore`
+
+# What does this repo even do?
+
+It follows the naming scheme to its gruesome logical conclusion: It
+serves the tool's purpose, and not your own. Whatever utility you get
+out of each tool is dictated by what each tool thinks you should be
+doing. Hence.
+
+1. Make runs "bundle instal" and brings up a Vagrant box
+2. Vagrant provisions docker
+3. Docker brings up a container running Guard
+4. Guard launches Foreman
+5. Foreman launches two 'yes'es which print "WHY ARE YOU DOING THIS TO YOURSELF" in a tight loop.
+
+I have no idea what Grunt and Capistrano would do at the moment, but
+they'll be busy later, I'm sure.
