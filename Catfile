@@ -43,6 +43,7 @@ backwards:
 
 * `*.lock` because of course
 * `.gitignore`
+* `README.md` - it's a symlink to Catfile.
 
 # What does this repo even do?
 
