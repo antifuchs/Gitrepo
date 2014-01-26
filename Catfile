@@ -2,10 +2,12 @@ Turns out that many many many tools want config files named after
 them. I can't help but think this is a very special form of
 narcissism. In this repo, I hope to assemble a repo consisting only of
 these files (with the exception of their .lock files if the tool
-requires them), and make them do something in an orchestrated fashion
-- note that this says "something", not necessarily "something useful".
+requires them), and make them do something in an orchestrated fashion --
+note that this says "something", not necessarily "something useful".
 
-# To run this (why would you want to do that?)
+# To run this
+
+(and why would you want to do that?)
 
 You'll need VirtualBox 4.2.x (or 4.3, though you will get warnings;
 I'm testing on 4.3 and it works fiiiiiine).
@@ -22,22 +24,24 @@ Only an excerpt. See [Filefile](https://github.com/cobyism/Filefile)
 for a complete list.
 
 * Capfile
-* Dockerfile
 * Gruntfile
 * Guardfile
 * Procfile
-* Rakefile
 
 ## Done - for "serious"
 
 * Berksfile
+* Dockerfile
 * Gemfile
 * Makefile
 * Vagrantfile
+* Rakefile
+* Thorfile
 
 ## Done - really not even "serious"
 
 * Catfile
+* Manifestfile (when given the choice between this & site.pp...)
 
 ## Exceptions made
 
