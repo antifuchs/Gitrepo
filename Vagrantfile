@@ -8,16 +8,25 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "docker_precise64"
+  config.vm.box = "precise64"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "http://nitron-vagrant.s3-website-us-east-1.amazonaws.com/vagrant_ubuntu_12.04.3_amd64_virtualbox.box"
+  config.vm.box_url = "https://oss-binaries.phusionpassenger.com/vagrant/boxes/ubuntu-12.04.3-amd64-vbox.box"
 
-  config.berkshelf.enabled = true
-  config.vm.provision :shell, inline: "sudo apt-get update && sudo apt-get -y install rubygems && sudo gem install --no-ri --no-rdoc chef"
-  config.vm.provision "chef_solo" do |chef|
-    chef.add_recipe "nginx"
+  # We build our docker images with chef! Disable this here explicitly
+  # so it's less confusing:
+  config.berkshelf.enabled = false
+
+  config.vm.provision :shell, inline: "sudo aptitude update && sudo apt-get -y install ruby1.9.1-dev rubygems apt-transport-https"
+#  config.vm.provision :shell, inline: "sudo apt-get -q -y upgrade"
+  config.vm.provision :shell, inline: "sudo gem install --no-ri --no-rdoc librarian-puppet"
+  config.vm.provision :shell, inline: "cd /vagrant && librarian-puppet install"
+
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = "."
+    puppet.manifest_file = "Manifestfile"
+    puppet.options = "--modulepath /vagrant/modules --verbose"
   end
 
   # config.vm.provider :virtualbox do |vb|
