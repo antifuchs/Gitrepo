@@ -1,6 +1,11 @@
 Berksfile
 Catfile
+Dockerfile
 Filefile
 Gemfile
 Makefile
+Manifestfile
+Puppetfile
+Rakefile
+Thorfile
 Vagrantfile

@@ -1,4 +1,4 @@
 # -*- ruby -*-
 
-source "http://api.berkshelf.com"
-cookbook 'nginx'
+site :opscode
+cookbook 'rbenv'
