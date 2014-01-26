@@ -15,7 +15,7 @@ RUBY
     # separate cookbook.
     File.write('/etc/chef/cookbooks/rbenv/recipes/box.rb', <<-RUBY)
 include_recipe "rbenv::ruby_build"
-rbenv_ruby "1.9.3-p484" { global true }
+rbenv_ruby("1.9.3-p484") { global true }
 RUBY
   end
 end
