@@ -4,9 +4,14 @@
 
 node default {
   include 'docker'
-}
-docker::image { 'base': }
-docker::run { 'helloworld':
-  image   => 'base',
-  command => '/bin/sh -c "while true; do echo hello world; sleep 1; done"',
+  # docker::image { 'antifuchs/gitrepo': }
+  exec { "/usr/bin/docker build -t antifuchs/gitrepo /vagrant":
+    timeout => 0,
+    require => Package["docker"];
+  }
+  docker::run { 'whywhywhy':
+    image   => 'antifuchs/gitrepo',
+    command => '/bin/sh -c "while true; do echo hello world; sleep 1; done"',
+    require => Exec["/usr/bin/docker build -t antifuchs/gitrepo /vagrant"];
+  }
 }
